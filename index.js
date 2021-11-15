@@ -30,6 +30,8 @@ async function run(){
 
         const workCollection = database.collection('works');
 
+        const listCollection = database.collection('lists')
+
 
         
          // GET works API 
@@ -37,6 +39,13 @@ async function run(){
             const cursor = workCollection.find({});
             const works = await cursor.toArray();
             res.send(works);
+
+        });
+         // GET works API 
+         app.get('/lists', async(req, res) => {
+            const cursor = listCollection .find({});
+            const lists = await cursor.toArray();
+            res.send(lists);
 
         });
 
