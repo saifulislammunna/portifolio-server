@@ -31,6 +31,7 @@ async function run(){
         const workCollection = database.collection('works');
 
         const listCollection = database.collection('lists')
+        const testimonialsCollection = database.collection('testimonials')
 
 
         
@@ -46,6 +47,13 @@ async function run(){
             const cursor = listCollection .find({});
             const lists = await cursor.toArray();
             res.send(lists);
+
+        });
+         // GET testimonials API 
+         app.get('/testimonials', async(req, res) => {
+            const cursor = testimonialsCollection.find({});
+            const testimonials = await cursor.toArray();
+            res.send(testimonials);
 
         });
 
